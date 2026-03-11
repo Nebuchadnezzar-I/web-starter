@@ -1,0 +1,100 @@
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --accent: #4f46e5;
+}
+
+[data-theme="dark"] {
+    --bg: #111111;
+    --text: #eeeeee;
+    --accent: #818cf8;
+}
+
+/* */
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/static/fonts/RobotoMono.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+No need for italic yet
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/static/fonts/RobotoMono-Italic.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+*/
+
+/* */
+
+body {
+    font-family: "Roboto Mono", monospace;
+    font-synthesis: none;
+    padding: 0;
+    margin: 0;
+}
+
+p, a,
+h1, h2, h3, h4, h5, h6,
+button, input {
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    outline: none;
+}
+
+/* Navigation */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.3s;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem 0 2rem;
+    height: 4rem;
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a.active {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media(width < 500px) {
+    header {
+        height: 6rem;
+        align-items: start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0 1.5rem 0 1.5rem;
+    }
+}
