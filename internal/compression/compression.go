@@ -21,7 +21,7 @@ func shouldCompress(path string, contentType string) bool {
 	contentType = strings.ToLower(contentType)
 
 	switch {
-		case strings.HasSuffix(path, ".png"),
+	case strings.HasSuffix(path, ".png"),
 		strings.HasSuffix(path, ".jpg"),
 		strings.HasSuffix(path, ".jpeg"),
 		strings.HasSuffix(path, ".webp"),

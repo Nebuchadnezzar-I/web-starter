@@ -4,32 +4,11 @@ import (
     "strings"
 )
 
-templ Navigation(active string) {
-    <h1>Brand</h1>
-
-    <div>
-        <a href="/" if active == "home" { class="active" }>
-            Home
-        </a>
-
-        <a href="/dashboard" if active == "dashboard" { class="active" }>
-            Dashboard
-        </a>
-
-        <a href="/warehouse" if active == "warehouse" { class="active" }>
-            Warehouse
-        </a>
-
-        <a href="/user" if active == "user" { class="active" }>
-            User
-        </a>
-    </div>
-}
-
 templ Index(title string) {
     <!DOCTYPE html>
     <html lang="en" data-theme="light">
         <head>
+
             <title>Web starter - { title }</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,9 +23,10 @@ templ Index(title string) {
 
             <link rel="preload" href="/static/fonts/RobotoMono.woff2" as="font" type="font/woff2" crossorigin>
             <link rel="stylesheet" type="text/css" href="/static/style/index.css">
-        </head>
 
+        </head>
         <body>
+
             <header>
                 @Navigation(strings.ToLower(title))
             </header>
@@ -58,6 +38,44 @@ templ Index(title string) {
             <script type="module"
                 src="/static/datastar.js" defer>
             </script>
+
         </body>
+
+        <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "source": "document",
+              "where": {
+                "selector_matches": "a[data-prerender]"
+              },
+              "eagerness": "moderate"
+            }
+          ]
+        }
+        </script>
+
     </html>
+}
+
+templ Navigation(active string) {
+    <h1>Brand</h1>
+
+    <div>
+        <a href="/" data-prerender if active == "home" { class="active" }>
+            Home
+        </a>
+
+        <a href="/dashboard" data-prerender if active == "dashboard" { class="active" }>
+            Dashboard
+        </a>
+
+        <a href="/warehouse" data-prerender if active == "warehouse" { class="active" }>
+            Warehouse
+        </a>
+
+        <a href="/user" data-prerender if active == "user" { class="active" }>
+            User
+        </a>
+    </div>
 }

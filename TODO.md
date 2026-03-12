@@ -1,0 +1,15 @@
+- [ ] Request context propagation
+- [ ] http.Server timeouts
+- [ ] MaxHeaderBytes
+- [ ] Limit r.Body size per route
+- [ ] Panic recovery middleware
+- [ ] Input validation
+- [ ] CSRF protection
+- [ ] Rate limiting
+- [ ] Security headers
+- [ ] DB pool limits
+- [ ] Graceful shutdown
+- [ ] Structured logging
+- [ ] HTTP/2
+- [ ] SSE
+- [ ] GORM

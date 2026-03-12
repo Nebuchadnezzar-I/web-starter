@@ -4,6 +4,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"time"
 
 	"web-starter/internal/cache"
 	"web-starter/internal/compression"
@@ -21,8 +22,13 @@ func main() {
 	}
 
 	server := &http.Server{
-		Addr: ":6969",
-		Handler: app.router(),
+		Addr:              ":6969",
+		Handler:           app.router(),
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       10 * time.Second,
+		WriteTimeout:      20 * time.Second,
+		IdleTimeout:       60 * time.Second,
+		MaxHeaderBytes:    1 << 20,
 	}
 
 	logger.Info("starting server")
@@ -56,8 +62,9 @@ func (app *application) router() http.Handler {
 
 	mux.Handle("GET /static/",
 		http.StripPrefix("/static/",
-		cache.CacheStatic(static)),
+			compression.GzipMiddleware(
+				cache.CacheStatic(static))),
 	)
 
-	return compression.GzipMiddleware(mux)
+	return mux
 }
