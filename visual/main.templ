@@ -1,0 +1,45 @@
+package visual
+
+templ Header(title string) {
+    <title>Web starter - { title }</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is starter website">
+    <meta name="color-scheme" content="dark light">
+
+    <link rel="icon" href="/static/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+
+    <link rel="preload" type="font/woff2" href="/static/fonts/RobotoMono.woff2" as="font" crossorigin>
+    <link rel="manifest" href="/static/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/static/style/index.css">
+    <script type="module" src="/static/datastar.js" defer></script>
+}
+
+templ Navigation() {
+    <header>
+        <h1>Some title</h1>
+    </header>
+}
+
+templ Home() {
+    <main>
+        <p>Content</p>
+    </main>
+}
+
+templ Html() {
+    <!DOCTYPE html>
+    <html lang="en" data-theme="light">
+        <head>
+            @Header("Home 1 : 1")
+        </head>
+
+        <body>
+            @Navigation()
+            @Home()
+        </body>
+    </html>
+}

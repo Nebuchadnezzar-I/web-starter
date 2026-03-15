@@ -1,15 +1,5 @@
-- [ ] Request context propagation
-- [ ] http.Server timeouts
-- [ ] MaxHeaderBytes
-- [ ] Limit r.Body size per route
-- [ ] Panic recovery middleware
-- [ ] Input validation
-- [ ] CSRF protection
-- [ ] Rate limiting
-- [ ] Security headers
-- [ ] DB pool limits
-- [ ] Graceful shutdown
-- [ ] Structured logging
-- [ ] HTTP/2
-- [ ] SSE
-- [ ] GORM
+- [x] TLS
+- [x] Templ
+- [x] Static files
+- [-] Perf / OWASP
+- [ ] https://owasp.org/www-project-secure-headers/

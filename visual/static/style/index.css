@@ -12,8 +12,9 @@
 
 /* */
 
+
 @font-face {
-  font-family: "Roboto Mono";
+  font-family: "RobotoMono";
   src: url("/static/fonts/RobotoMono.woff2") format("woff2");
   font-weight: 100 700;
   font-style: normal;
@@ -23,7 +24,7 @@
 /*
 No need for italic yet
 @font-face {
-  font-family: "Roboto Mono";
+  font-family: "RobotoMono";
   src: url("/static/fonts/RobotoMono-Italic.woff2") format("woff2");
   font-weight: 100 700;
   font-style: italic;
@@ -34,7 +35,7 @@ No need for italic yet
 /* */
 
 body {
-    font-family: "Roboto Mono", monospace;
+    font-family: "RobotoMono", monospace;
     font-synthesis: none;
     padding: 0;
     margin: 0;
